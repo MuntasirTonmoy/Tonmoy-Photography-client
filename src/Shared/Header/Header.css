@@ -1,34 +1,17 @@
-.nav-bar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 4rem;
-
-  background-color: aliceblue;
-  padding: 1.2rem 2rem 1rem 1.5rem;
+.round {
+  border-radius: 5rem;
 }
 
-.logo-and-links {
-  display: flex;
-  align-items: center;
-}
-.logo-text {
-  font-size: 1.3rem;
-  margin-top: 0.3rem;
-  font-family: Georgia, "Times New Roman", Times, serif;
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
+.background {
+  background-color: #771897;
 }
 
-.logo-text img {
-  height: 2.5rem;
+.outline {
+  outline: 1px solid #771897;
+  color: #771897;
 }
 
-.nav-menu a {
-  font-size: 1rem;
-  font-family: Arial, Helvetica, sans-serif;
-  text-decoration: none;
-  margin-left: 2.5rem;
-  color: black;
+.outline:hover {
+  background-color: #771897;
+  color: white;
 }
