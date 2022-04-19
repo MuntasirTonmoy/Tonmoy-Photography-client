@@ -1,14 +1,12 @@
 import React from "react";
 import "./Banner.css";
-import birthday from "../../../images/birthday.jpg";
-import wedding from "../../../images/wedding.jpg";
 import family from "../../../images/family.jpg";
 
 const Banner = () => {
   return (
     <div>
-      <div className="p-lg-5 row m-0">
-        <div className="p-4 col-lg-6 p-lg-5 order-2 order-lg-1 my-lg-auto p-0">
+      <div className="py-lg-5 row m-0">
+        <div className="p-4 col-lg-6 order-2 order-lg-1 my-lg-auto p-0">
           <h1>Hi,</h1>
           <h1 className="fs-md-5">
             I am <span className="primary-color">Muntasir Tonmoy</span>
@@ -24,7 +22,7 @@ const Banner = () => {
             Contact Me
           </button>
         </div>
-        <div className="pt-3 col-lg-6 p-lg-5 pb-3 order-1 order-lg-2">
+        <div className="pt-3 col-lg-6 pb-3 order-1 order-lg-2">
           <img src={family} className="w-100" alt="" />
         </div>
       </div>

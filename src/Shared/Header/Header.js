@@ -1,17 +1,26 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Header.css";
 import logo from "../../logo.gif";
 import CustomLink from "../CustomLink/CustomLink";
 import { Nav, Navbar } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../../firebase.init";
+import { signOut } from "firebase/auth";
+import userPhoto from "../../user.png";
 
 const Header = () => {
+  const navigate = useNavigate();
+  const [user] = useAuthState(auth);
+  if (user) {
+    navigate("/");
+  }
   return (
     <header>
       <Navbar
         bg="light"
         expand="lg"
-        className="w-100 px-lg-5 px-3 py-0 d-flex justify-content-between mb-3 mb-lg-0"
+        className="w-100 px-lg-5 px-3 py-0 d-flex justify-content-between align-items-center mb-3 mb-lg-0"
       >
         <Navbar.Brand
           className="d-flex align-items-center gap-3"
@@ -40,12 +49,38 @@ const Header = () => {
               About Me
             </Nav.Link>
 
-            <button className="px-5 px-lg-3 my-3 mx-auto my-lg-0 btn outline semi-bold round me-lg-4 text-uppercase bg-gradient">
-              Log In
-            </button>
-            <button className="px-5 px-lg-3 mb-4 mx-auto mb-lg-0 btn me-lg-4  background text-white round text-uppercase bg-gradient">
-              Sign Up
-            </button>
+            {user ? (
+              <button
+                onClick={() => signOut(auth)}
+                className="px-5 px-lg-3 my-3 mx-auto my-lg-0 btn outline semi-bold round me-lg-4 text-uppercase bg-gradient"
+              >
+                Log Out
+              </button>
+            ) : (
+              <button
+                onClick={() => navigate("/signIn")}
+                className="px-5 px-lg-3 my-3 mx-auto my-lg-0 btn outline semi-bold round me-lg-4 text-uppercase bg-gradient"
+              >
+                Log In
+              </button>
+            )}
+
+            {user ? (
+              <img
+                src={user.photoURL ? user.photoURL : userPhoto}
+                className="m-0 p-0 round"
+                width="35px"
+                height="35px"
+                alt=""
+              ></img>
+            ) : (
+              <button
+                onClick={() => navigate("/signUp")}
+                className="px-5 px-lg-3 mb-4 mx-auto mb-lg-0 btn me-lg-4  background text-white round text-uppercase bg-gradient"
+              >
+                Sign Up
+              </button>
+            )}
           </Nav>
         </Navbar.Collapse>
       </Navbar>

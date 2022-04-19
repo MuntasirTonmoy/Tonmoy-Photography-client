@@ -5,7 +5,7 @@ const Footer = () => {
   const date = new Date();
   const year = date.getFullYear();
   return (
-    <footer className="fixed-bottom">
+    <footer className="mt-5">
       <p className="m-0 text-center text-muted pt-2 pb-2">
         <small>
           Copyright © {year} Developer Tonmoy - All Rights Reserved.
