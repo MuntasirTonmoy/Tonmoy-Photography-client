@@ -1,8 +1,10 @@
+import { async } from "@firebase/util";
 import React from "react";
 import { Form } from "react-bootstrap";
 import {
   useCreateUserWithEmailAndPassword,
   useSignInWithGoogle,
+  useUpdateProfile,
 } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 
@@ -11,22 +13,22 @@ const SignUp = () => {
     useSignInWithGoogle(auth);
 
   const [createUserWithEmailAndPassword, userViaEmail, errorViaEmail] =
-    useCreateUserWithEmailAndPassword(auth);
-
-  if (errorViaGoogle) {
-    console.log(errorViaGoogle);
-  }
+    useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
 
   if (userViaGoogle || userViaEmail) {
     console.log(userViaGoogle, userViaEmail);
   }
 
-  const handleSignUp = (event) => {
+  const [updateProfile, updating, error] = useUpdateProfile(auth);
+
+  const handleSignUp = async (event) => {
     event.preventDefault();
+    const name = event.target.name?.value;
     const email = event.target.email?.value;
     const password = event.target.password?.value;
     console.log(email, password);
-    createUserWithEmailAndPassword(email, password);
+    await createUserWithEmailAndPassword(email, password);
+    await updateProfile({ displayName: name });
   };
   return (
     <div className="container">
