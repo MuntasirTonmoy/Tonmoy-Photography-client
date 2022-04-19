@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
-    <>
+    <header>
       <Navbar
         bg="light"
         expand="lg"
@@ -29,10 +29,7 @@ const Header = () => {
 
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav
-            style={{ fontWeight: "550" }}
-            className="ms-0 ms-lg-auto pe-3 text-uppercase"
-          >
+          <Nav className="ms-0 ms-lg-auto pe-3 semi-bold text-uppercase">
             <Nav.Link className="me-lg-4 mx-auto" as={CustomLink} to="/">
               Home
             </Nav.Link>
@@ -43,7 +40,7 @@ const Header = () => {
               About Me
             </Nav.Link>
 
-            <button className="px-5 px-lg-3 my-3 mx-auto my-lg-0 btn outline round me-lg-4 text-uppercase bg-gradient">
+            <button className="px-5 px-lg-3 my-3 mx-auto my-lg-0 btn outline semi-bold round me-lg-4 text-uppercase bg-gradient">
               Log In
             </button>
             <button className="px-5 px-lg-3 mb-4 mx-auto mb-lg-0 btn me-lg-4  background text-white round text-uppercase bg-gradient">
@@ -52,7 +49,7 @@ const Header = () => {
           </Nav>
         </Navbar.Collapse>
       </Navbar>
-    </>
+    </header>
   );
 };
 

@@ -6,6 +6,10 @@
   background-color: #771897;
 }
 
+.semi-bold {
+  font-weight: 550;
+}
+
 .outline {
   outline: 1px solid #771897;
   color: #771897;
