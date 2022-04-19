@@ -1,11 +1,12 @@
 import React from "react";
+import "./Footer.css";
 
 const Footer = () => {
   const date = new Date();
   const year = date.getFullYear();
   return (
     <footer className="fixed-bottom">
-      <p className="text-center text-muted pt-2 pb-2 m-0">
+      <p className="m-0 text-center text-muted pt-2 pb-2">
         <small>
           Copyright © {year} Developer Tonmoy - All Rights Reserved.
         </small>

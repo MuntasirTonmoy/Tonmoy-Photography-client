@@ -1,0 +1,11 @@
+.h100vh {
+  height: calc(100vh - 9rem);
+}
+
+.gray {
+  color: rgb(102, 99, 99);
+}
+
+.fs10rem {
+  font-size: 6rem;
+}
