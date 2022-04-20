@@ -1,0 +1,23 @@
+[
+  {
+    "name": "Birthday Photography",
+    "id": "625ee0abd4abe7e82280699b",
+    "picture": "https://i.ibb.co/80sSjF6/birthday.jpg",
+    "comment": "I will capture all the awesome moments of your birthday.",
+    "price": 300
+  },
+  {
+    "name": "Wedding Photography",
+    "id": "625ee0ab143a258d1ac092e8",
+    "picture": "https://i.ibb.co/vJRmrrw/wedding.jpg",
+    "comment": "I will capture amazing photos of your wedding ceremony.",
+    "price": 500
+  },
+  {
+    "name": "Family Photography",
+    "id": "625ee0abff4db0c668ae7710",
+    "picture": "https://i.ibb.co/m8Kt75c/Cartoon-photographer-taking-photo-of-parents-and-kid-in-studio.jpg",
+    "comment": "I will capture splendid photos of you your family members",
+    "price": 200
+  }
+]

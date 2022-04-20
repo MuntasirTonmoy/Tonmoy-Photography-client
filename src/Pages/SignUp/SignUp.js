@@ -1,14 +1,16 @@
 import { async } from "@firebase/util";
-import React from "react";
+import React, { useEffect } from "react";
 import { Form } from "react-bootstrap";
 import {
   useCreateUserWithEmailAndPassword,
   useSignInWithGoogle,
   useUpdateProfile,
 } from "react-firebase-hooks/auth";
+import { useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
 
 const SignUp = () => {
+  const navigate = useNavigate();
   const [signInWithGoogle, userViaGoogle, errorViaGoogle] =
     useSignInWithGoogle(auth);
 
@@ -60,9 +62,15 @@ const SignUp = () => {
           className=" w-100 px-5 mb-lg-4 px-lg-3 mb-4 mt-3 mx-auto mb-lg-0 btn me-lg-4  background text-white round text-uppercase bg-gradient"
         ></input>
       </Form>
-      <p>
+      <p className="w-50 mx-auto">
         Already have an account?{" "}
-        <span className="semi-bold primary-color">Log in</span>
+        <span
+          style={{ cursor: "pointer" }}
+          onClick={() => navigate("/signIn")}
+          className="semi-bold primary-color"
+        >
+          Sign in
+        </span>
       </p>
       <div className="w-50 mx-auto d-flex justify-content-center align-items-center">
         <div className="line w-100"></div>

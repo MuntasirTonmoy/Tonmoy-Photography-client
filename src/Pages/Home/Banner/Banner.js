@@ -1,11 +1,13 @@
 import React from "react";
 import "./Banner.css";
 import family from "../../../images/family.jpg";
+import { useNavigate } from "react-router-dom";
 
 const Banner = () => {
+  const navigate = useNavigate();
   return (
     <div>
-      <div className="py-lg-5 row m-0">
+      <div className="py-lg-5 mt-lg-5 row mb-lg-5 mx-lg-1">
         <div className="p-4 col-lg-6 order-2 order-lg-1 my-lg-auto p-0">
           <h1>Hi,</h1>
           <h1 className="fs-md-5">
@@ -18,7 +20,10 @@ const Banner = () => {
             beautiful images as memories. I am specializing event like birthday,
             wedding and family photography.
           </p>
-          <button className="btn background text-white round text-uppercase semi-bold bg-gradient px-3 mt-2">
+          <button
+            onClick={() => navigate("/aboutMe")}
+            className="btn background text-white round text-uppercase semi-bold bg-gradient px-3 mt-2"
+          >
             Contact Me
           </button>
         </div>

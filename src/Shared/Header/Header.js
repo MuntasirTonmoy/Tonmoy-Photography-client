@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Header.css";
 import logo from "../../logo.gif";
 import CustomLink from "../CustomLink/CustomLink";
@@ -12,9 +12,10 @@ import userPhoto from "../../user.png";
 const Header = () => {
   const navigate = useNavigate();
   const [user] = useAuthState(auth);
-  if (user) {
-    navigate("/");
-  }
+  const handleSignout = () => {
+    signOut(auth);
+  };
+
   return (
     <header>
       <Navbar
@@ -38,7 +39,7 @@ const Header = () => {
 
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="ms-0 ms-lg-auto pe-3 semi-bold text-uppercase">
+          <Nav className="ms-0 ms-lg-auto pe-3 semi-bold text-uppercase align-items-center">
             <Nav.Link className="me-lg-4 mx-auto" as={CustomLink} to="/">
               Home
             </Nav.Link>
@@ -50,25 +51,9 @@ const Header = () => {
             </Nav.Link>
 
             {user ? (
-              <button
-                onClick={() => signOut(auth)}
-                className="px-5 px-lg-3 my-3 mx-auto my-lg-0 btn outline semi-bold round me-lg-4 text-uppercase bg-gradient"
-              >
-                Log Out
-              </button>
-            ) : (
-              <button
-                onClick={() => navigate("/signIn")}
-                className="px-5 px-lg-3 my-3 mx-auto my-lg-0 btn outline semi-bold round me-lg-4 text-uppercase bg-gradient"
-              >
-                Log In
-              </button>
-            )}
-
-            {user ? (
               <img
                 src={user.photoURL ? user.photoURL : userPhoto}
-                className="m-0 p-0 round"
+                className="me-lg-4 round"
                 width="35px"
                 height="35px"
                 alt=""
@@ -79,6 +64,22 @@ const Header = () => {
                 className="px-5 px-lg-3 mb-4 mx-auto mb-lg-0 btn me-lg-4  background text-white round text-uppercase bg-gradient"
               >
                 Sign Up
+              </button>
+            )}
+
+            {user ? (
+              <button
+                onClick={handleSignout}
+                className="px-5 px-lg-3 my-3 mx-auto my-lg-0 btn outline semi-bold round me-lg-4 text-uppercase bg-gradient"
+              >
+                Sign Out
+              </button>
+            ) : (
+              <button
+                onClick={() => navigate("/signIn")}
+                className="px-5 px-lg-3 my-3 mx-auto my-lg-0 btn outline semi-bold round me-lg-4 text-uppercase bg-gradient"
+              >
+                Sign In
               </button>
             )}
           </Nav>

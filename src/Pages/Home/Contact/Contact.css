@@ -1,0 +1,15 @@
+.border-right {
+  border-top-right-radius: 5rem;
+  border-bottom-right-radius: 5rem;
+}
+.border-left {
+  border-top-left-radius: 5rem;
+  border-bottom-left-radius: 5rem;
+}
+
+.btn {
+  transition: transform 300ms;
+}
+.btn:hover {
+  transform: scale(1.02);
+}
