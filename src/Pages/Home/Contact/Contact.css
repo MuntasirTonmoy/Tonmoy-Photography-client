@@ -13,3 +13,7 @@
 .btn:hover {
   transform: scale(1.02);
 }
+
+.vh-height {
+  height: calc(100vh - 6.725rem);
+}

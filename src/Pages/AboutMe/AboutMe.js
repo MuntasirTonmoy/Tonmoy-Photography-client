@@ -7,7 +7,7 @@ const AboutMe = () => {
       <div className="text-center mb-4">
         <img src={myPhoto} alt="" />
       </div>
-      <div className="text-center px-lg-5">
+      <div className="text-center px-lg-5 mx-lg-5">
         <h1>Muntasir Tonmoy</h1>
         <p>
           I want to be an web developer. I am learning it from Programming hero

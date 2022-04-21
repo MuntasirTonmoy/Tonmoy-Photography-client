@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 const Service = ({ service }) => {
   const navigate = useNavigate();
-  const { name, picture, comment, price } = service;
+  const { id, name, picture, comment, price } = service;
   return (
     <Card className="card w-100 mx-lg-3 my-lg-4">
       <Card.Img variant="top" height="300px" src={picture} />
@@ -18,7 +18,7 @@ const Service = ({ service }) => {
         </div>
 
         <button
-          onClick={() => navigate("/checkout")}
+          onClick={() => navigate(`/checkout/${id}`)}
           className=" px-3 px-lg-3 mb-2 mb-lg-0 btn me-lg-4  background text-white round text-uppercase bg-gradient"
         >
           Book now

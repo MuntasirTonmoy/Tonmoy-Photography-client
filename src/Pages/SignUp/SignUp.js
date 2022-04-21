@@ -1,6 +1,7 @@
 import { async } from "@firebase/util";
-import React, { useEffect } from "react";
+import React from "react";
 import { Form } from "react-bootstrap";
+import { FcGoogle } from "react-icons/fc";
 import {
   useCreateUserWithEmailAndPassword,
   useSignInWithGoogle,
@@ -18,7 +19,6 @@ const SignUp = () => {
     useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
 
   if (userViaGoogle || userViaEmail) {
-    console.log(userViaGoogle, userViaEmail);
   }
 
   const [updateProfile, updating, error] = useUpdateProfile(auth);
@@ -45,7 +45,12 @@ const SignUp = () => {
 
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
-          <Form.Control name="email" type="email" placeholder="Enter email" />
+          <Form.Control
+            name="email"
+            type="email"
+            placeholder="Enter email"
+            required
+          />
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicPassword">
@@ -54,6 +59,7 @@ const SignUp = () => {
             name="password"
             type="password"
             placeholder="Password"
+            required
           />
         </Form.Group>
         <input
@@ -78,11 +84,17 @@ const SignUp = () => {
         <div className="line w-100"></div>
       </div>
       <div className="w-50 mx-auto">
+        <p className="text-center m-0"></p>
         <button
           onClick={() => signInWithGoogle()}
           className="w-100 mt-lg-4 px-5 px-lg-3 my-3 mx-auto my-lg-0 btn outline semi-bold round me-lg-4 text-uppercase bg-gradient"
         >
-          Continue with Google
+          <div className="d-flex align-items-center justify-content-center gap-lg-2 gap-2">
+            <p className="m-0 pb-1">
+              <FcGoogle></FcGoogle>
+            </p>{" "}
+            <p className="m-0">Google</p>
+          </div>
         </button>
       </div>
     </div>

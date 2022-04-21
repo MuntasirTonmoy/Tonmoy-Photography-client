@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./Header.css";
 import logo from "../../logo.gif";
 import CustomLink from "../CustomLink/CustomLink";
@@ -61,7 +61,7 @@ const Header = () => {
             ) : (
               <button
                 onClick={() => navigate("/signUp")}
-                className="px-5 px-lg-3 mb-4 mx-auto mb-lg-0 btn me-lg-4  background text-white round text-uppercase bg-gradient"
+                className="px-5 px-lg-3 mb-2 mx-auto mb-lg-0 btn me-lg-4  background text-white round text-uppercase bg-gradient"
               >
                 Sign Up
               </button>
