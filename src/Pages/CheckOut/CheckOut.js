@@ -1,5 +1,5 @@
 import React from "react";
-import { Card } from "react-bootstrap";
+import { Card, Form } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
 import useServices from "../../hooks/useServices";
 import { BsCartCheckFill } from "react-icons/bs";
@@ -14,20 +14,21 @@ const CheckOut = () => {
     services.length > 1 && services.find((element) => element?.id === id);
   const { name, picture, price, comment } = service;
 
-  const notify = () => {
+  const notify = (event) => {
+    event.preventDefault();
     toast.success("Thank you for booking.");
     setTimeout(() => {
       return navigate("/");
-    }, 2500);
+    }, 3000);
   };
 
   return (
     <div className="container my-lg-5">
       <div className="row">
-        <div className="col-lg-4">
+        <div className="col-lg-4 col-12">
           <ToastContainer
             position="top-right"
-            autoClose={2000}
+            autoClose={2500}
             hideProgressBar={false}
             newestOnTop={false}
             closeOnClick
@@ -47,19 +48,40 @@ const CheckOut = () => {
             </Card.Body>
           </Card>
         </div>
-        <div className="col-lg-8 bg-light">
+        <div className="col-lg-8 col-11 bg-light py-3 py-lg-0  mt-3 mt-lg-0 mx-auto">
           <h1 className="text-center font-family my-3">Order Summery</h1>
           <p className=" text-center">
             You have orderd{" "}
             <span className="semi-bold primary-color">{name}</span> package.
+            Enter your details to checkout.
           </p>
+          <Form className="w-50 mx-auto" onSubmit={notify}>
+            <Form.Group className="mb-3">
+              <Form.Label>Name</Form.Label>
+              <Form.Control type="text" placeholder="Your name" required />
+            </Form.Group>
+            <Form.Group className="mb-3">
+              <Form.Label>Email address</Form.Label>
+              <Form.Control type="email" placeholder="Enter email" required />
+            </Form.Group>
 
-          <button
-            onClick={notify}
-            className=" my-3 ms=5 px-3 px-lg-5 mb-2 mb-lg-0 btn  background text-white round text-uppercase bg-gradient"
-          >
-            Checkout <BsCartCheckFill className="ms-2"></BsCartCheckFill>
-          </button>
+            <Form.Group className="mb-3">
+              <Form.Label>Phone No.</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter phone no."
+                required
+              />
+            </Form.Group>
+            <div className="w-50 mx-auto">
+              <button
+                type="submit"
+                className="w-100 my-3 px-lg-5 mb-2 mb-lg-0 btn  background text-white round text-uppercase bg-gradient"
+              >
+                Checkout <BsCartCheckFill className="ms-2"></BsCartCheckFill>
+              </button>
+            </div>
+          </Form>
         </div>
       </div>
     </div>
