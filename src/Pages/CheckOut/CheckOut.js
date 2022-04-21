@@ -73,7 +73,7 @@ const CheckOut = () => {
                 required
               />
             </Form.Group>
-            <div className="w-50 mx-auto">
+            <div className="w-100">
               <button
                 type="submit"
                 className="w-100 my-3 px-lg-5 mb-2 mb-lg-0 btn  background text-white round text-uppercase bg-gradient"

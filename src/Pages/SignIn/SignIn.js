@@ -82,14 +82,14 @@ const SignIn = () => {
             required
           />
         </Form.Group>
-        <p
+        <span
           onClick={() => navigate("/passwordReset")}
           style={{ cursor: "pointer" }}
           className="semi-bold primary-color "
         >
           {" "}
           Forgot password?
-        </p>
+        </span>
 
         <input
           type="submit"

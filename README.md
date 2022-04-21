@@ -9,6 +9,6 @@
 - Email Sign In , Sign Up via Firebase authentication
 - Google Sign In via Firebase authentication
 - Verify email and reset password
-- Responsive
+- Mobile Responsive
 - Private route
 - Firebase hosting
